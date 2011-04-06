@@ -1,0 +1,8 @@
+---
+    en:
+        dua_enabled: "Deprecate User Agents"
+        dua_message: "Message for deprecated user agents:"
+        deprecated_user_agents: "Deprecated User Agents"
+        deprecated_user_agents_will_be_warned: "Deprecated user agents will be warned."
+        deprecated_user_agents_will_not_be_warned: "Deprecated user agents will not be warned"
+        message_for_deprecated_user_agents: "Message for deprecated user agents:"
