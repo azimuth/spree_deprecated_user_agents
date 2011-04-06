@@ -8,7 +8,6 @@ Gem::Specification.new do |s|
 
   s.author            = 'Christopher Maujean'
   s.email             = 'cmaujean@gmail.com'
-  s.rubyforge_project = 'spree_deprecated_user_agents'
 
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
