@@ -1,9 +1,14 @@
 class SpreeDeprecatedUserAgentsHooks < Spree::ThemeSupport::HookListener
   # custom hooks go here
+  insert_after :inside_head do
+    '<%= render :partial => "shared/warn_ie_6" %>'
+  end
+
   insert_after :admin_general_settings_edit do
       <<EOT
       <p>
-      <%= check_box_tag('preferences[dua_enabled]', Spree::Config[:dua_enabled], Spree::Config[:dua_enabled]) %> 
+      <input name="preferences[dua_enabled]" type="hidden" value="0" />
+      <%= check_box_tag('preferences[dua_enabled]', 1, Spree::Config[:dua_enabled].to_i == 1 ? true : false) %> 
       <label> <%= t("dua_enabled") %></label>
       </p>
       <p>
@@ -20,7 +25,7 @@ EOT
       </tr>
       <tr>
       <td colspan="2">
-        <%= (Spree::Config[:dua_enabled] ? t("deprecated_user_agents_will_be_warned") : t("deprecated_user_agents_will_not_be_warned")) %>
+        <%= (Spree::Config[:dua_enabled].to_i == 1 ? t("deprecated_user_agents_will_be_warned") : t("deprecated_user_agents_will_not_be_warned")) %>
       </td>	
       </tr>
       <tr>
